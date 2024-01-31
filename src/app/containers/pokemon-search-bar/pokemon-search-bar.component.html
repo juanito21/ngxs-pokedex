@@ -1,0 +1,19 @@
+<form class="pokemon-form">
+  <mat-form-field class="pokemon-search-bar">
+    <mat-label>State</mat-label>
+    <input matInput
+           aria-label="State"
+           [matAutocomplete]="auto"
+           [formControl]="pokemonCtrl">
+    <mat-autocomplete [displayWith]="displayWith" #auto="matAutocomplete">
+      @for (pokemon of filteredPokemons$ | async; track pokemon.id) {
+        <mat-option (onSelectionChange)="onSelect($event)" [value]="pokemon">
+          <img alt="" class="example-option-img" [src]="pokemon.image" height="50">
+          <span>{{pokemon.name}}</span> |
+          <small>{{pokemon.id}}</small>
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
