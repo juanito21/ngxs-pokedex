@@ -1,1 +1,7 @@
+<mat-progress-bar *ngIf="globalLoading$ | async" mode="indeterminate"></mat-progress-bar>
+
+<h4>Vous avez {{pokedexSize$ | async}} pokemon(s) dans votre pokedex</h4>
+
 <app-pokemon-search-bar></app-pokemon-search-bar>
+<app-pokemon-details *ngIf="(areDetailsEmpty$ | async) == false"></app-pokemon-details>
+<app-pokedex-grid></app-pokedex-grid>

@@ -11,6 +11,10 @@ import {PokemonService} from "./services/pokemon.service";
 import {PokemonSearchBarState} from "./states/pokemon-search-bar/pokemon-search-bar.state";
 import {PokemonSearchBarComponent} from "./containers/pokemon-search-bar/pokemon-search-bar.component";
 import {PokemonDetailsState} from "./states/pokemon-details/pokemon-details.state";
+import {PokemonDetailsComponent} from "./containers/pokemon-details/pokemon-details.component";
+import {PokedexState} from "./states/pokedex/pokedex.state";
+import {PokedexGridComponent} from "./containers/pokedex-grid/pokedex-grid.component";
+import {MatProgressBar} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -22,9 +26,17 @@ import {PokemonDetailsState} from "./states/pokemon-details/pokemon-details.stat
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxsModule.forRoot([PokemonsState, PokemonSearchBarState, PokemonDetailsState]),
+    NgxsModule.forRoot([
+      PokemonsState,
+      PokemonSearchBarState,
+      PokemonDetailsState,
+      PokedexState
+    ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     PokemonSearchBarComponent,
+    PokemonDetailsComponent,
+    PokedexGridComponent,
+    MatProgressBar,
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

@@ -1,0 +1,8 @@
+<h3>Mon pokedex</h3>
+<ag-grid-angular
+  class="ag-theme-quartz"
+  style="height: 500px;"
+  [columnDefs]="colDefs"
+  [rowData]="pokedex$ | async"
+>
+</ag-grid-angular>

@@ -8,5 +8,4 @@ export class PokemonsSelector {
   static pokemons(state: PokemonsStateModel): PokemonDto[] {
     return state.pokemons;
   }
-
 }

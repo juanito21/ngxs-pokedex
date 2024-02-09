@@ -3,6 +3,8 @@ import {Action, State, StateContext, Store} from '@ngxs/store';
 import {PokemonDto} from "../../services/pokemon.dto";
 import {PokemonSearchBar} from "./pokemon-search-bar.actions";
 import {PokemonsSelector} from "../pokemons/pokemons.selector";
+import {PokemonService} from "../../services/pokemon.service";
+import {PokemonDetails} from "../pokemon-details/pokemon-details.actions";
 
 export interface PokemonSearchBarStateModel {
   filteredPokemons: PokemonDto[];
@@ -30,7 +32,7 @@ export class PokemonSearchBarState {
   }
 
   @Action(PokemonSearchBar.Select)
-  select({ patchState }: StateContext<PokemonSearchBarStateModel>, { value }: PokemonSearchBar.NewValue) {
-    // TODO dispatch load pokemon details
+  select({ dispatch }: StateContext<PokemonSearchBarStateModel>, { selected }: PokemonSearchBar.Select) {
+    dispatch(new PokemonDetails.Load(selected));
   }
 }
